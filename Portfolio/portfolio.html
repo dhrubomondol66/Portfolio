@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dhrubo Mondol | Portfolio</title>
+    <!-- Tailwind CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h1>Dhrubo Mondol</h1>
+        <p>Software Developer</p>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="#about" class="nav-link"><i class="fas fa-user"></i> About</a>
+        <a href="#skills" class="nav-link"
+          ><i class="fas fa-code"></i> Skills</a
+        >
+        <a href="#projects" class="nav-link"
+          ><i class="fas fa-briefcase"></i> Projects</a
+        >
+        <a href="#contact" class="nav-link"
+          ><i class="fas fa-envelope"></i> Contact</a
+        >
+      </nav>
+    </aside>
+
+    <!-- Mobile Navbar -->
+    <nav class="mobile-nav">
+      <h1>Dhrubo Mondol</h1>
+      <button id="menu-btn"><i class="fas fa-bars"></i></button>
+    </nav>
+
+    <!-- Mobile Sidebar -->
+    <aside id="mobile-sidebar" class="mobile-sidebar">
+      <div class="mobile-sidebar-header">
+        <h1>Dhrubo Mondol</h1>
+        <button id="close-btn"><i class="fas fa-times"></i></button>
+      </div>
+      <nav class="mobile-nav-links">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- About -->
+      <section id="about" class="section">
+        <div class="about-container">
+          <div class="about-text">
+            <h2>Hi, I'm Dhrubo</h2>
+            <p>
+              I am a <strong>Backend Developer</strong> with full-stack
+              capabilities, specializing in
+              <strong>Python, Django, REST APIs</strong>, and practical
+              experience with frontend technologies like
+              <strong>HTML, CSS, JavaScript, React.js</strong>. I love building
+              <strong>scalable, secure, and responsive web applications</strong
+              >.
+            </p>
+            <p>
+              Passionate about learning modern technologies, collaborating
+              remotely, and contributing to impactful projects.
+            </p>
+          </div>
+          <div class="about-image">
+            <img src="Dhrubo.jpg" alt="Dhrubo Mondol" />
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills -->
+      <section id="skills" class="section">
+        <h2>Technical Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-card">Python / Django / Flask</div>
+          <div class="skill-card">HTML5, CSS3, JavaScript</div>
+          <div class="skill-card">React.js / Next.js</div>
+          <div class="skill-card">MySQL / SQLite</div>
+          <div class="skill-card">RESTful APIs</div>
+          <div class="skill-card">Bootstrap / Tailwind CSS</div>
+          <div class="skill-card">Git / GitHub</div>
+          <div class="skill-card">Data Handling & Automation</div>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section id="projects" class="section">
+        <h2>Projects</h2>
+        <div class="projects-grid">
+          <div class="project-card">
+            <h3>Smart Transport Management System</h3>
+            <p>
+              Backend system for managing routes, schedules, and ticketing using
+              Django & Flask with responsive frontend.
+            </p>
+            <a
+              href="https://github.com/dhrubomondol66/smart-transport"
+              target="_blank"
+              ><i class="fab fa-github"></i> GitHub</a
+            >
+          </div>
+          <div class="project-card">
+            <h3>Hospital Appointment Management System</h3>
+            <p>
+              Full-stack application for booking appointments, payments, and
+              scheduling using PHP/MySQL and JS frontend.
+            </p>
+            <a
+              href="https://github.com/dhrubomondol66/hospital-appointment"
+              target="_blank"
+              ><i class="fab fa-github"></i> GitHub</a
+            >
+          </div>
+          <div class="project-card">
+            <h3>Library Review System</h3>
+            <p>
+              Django-based app for book reviews and ratings with frontend using
+              Bootstrap & JS.
+            </p>
+            <a
+              href="https://github.com/dhrubomondol66/library-review"
+              target="_blank"
+              ><i class="fab fa-github"></i> GitHub</a
+            >
+          </div>
+          <div class="project-card">
+            <h3>Potato Leaf Disease Detection</h3>
+            <p>
+              AI project using CNN for leaf classification, automated backend
+              pipelines, and frontend dashboard.
+            </p>
+            <a
+              href="https://github.com/dhrubomondol66/potato-leaf-detection"
+              target="_blank"
+              ><i class="fab fa-github"></i> GitHub</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="section">
+        <h2>Contact Me</h2>
+        <p>
+          <i class="fas fa-envelope"></i> Email:
+          <a href="mailto:mondal15-5329@diu.edu.bd">mondal15-5329@diu.edu.bd</a>
+        </p>
+        <p><i class="fas fa-phone"></i> Phone: +8801799766425</p>
+        <p>
+          <i class="fab fa-github"></i> GitHub:
+          <a href="https://github.com/dhrubomondol66"
+            >github.com/dhrubomondol66</a
+          >
+        </p>
+        <p>
+          <i class="fab fa-linkedin"></i> LinkedIn:
+          <a href="https://www.linkedin.com/in/dhrubo-mondol-664554229"
+            >linkedin.com/in/dhrubo-mondol-664554229</a
+          >
+        </p>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
