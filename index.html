@@ -5,8 +5,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description"
-    content="Dhrubo Mondol - Backend Developer specializing in Python, Django, REST APIs, and full-stack web development." />
-  <meta name="keywords" content="Dhrubo Mondol, Backend Developer, Python, Django, React, Portfolio" />
+    content="Dhrubo Mondol - Backend Developer specializing in Python, Django, FastAPI, REST APIs, and full-stack web development." />
+  <meta name="keywords" content="Dhrubo Mondol, Backend Developer, Python, Django, FastAPI, React, Portfolio" />
   <meta name="author" content="Dhrubo Mondol" />
   <title>Dhrubo Mondol | Backend Developer & Full-Stack Enthusiast</title>
 
@@ -21,6 +21,153 @@
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* ── Experience card — uses same glass/border vars as project-card ── */
+    .experience-card {
+      background: var(--bg-glass);
+      border: 1px solid var(--border-glass);
+      border-radius: 20px;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: var(--transition-smooth);
+    }
+    .experience-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: var(--primary-gradient);
+      transform: scaleX(1); /* always visible for experience */
+    }
+    .experience-card:hover {
+      border-color: var(--border-accent);
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-card), var(--shadow-glow);
+    }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.4rem;
+    }
+    .exp-header h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin: 0;
+    }
+    .exp-badge {
+      font-size: 0.75rem;
+      background: rgba(167, 139, 250, 0.12);
+      color: var(--accent-light);
+      border: 1px solid var(--border-accent);
+      border-radius: 20px;
+      padding: 3px 12px;
+      white-space: nowrap;
+      font-weight: 500;
+    }
+    .exp-company {
+      font-size: 0.9rem;
+      color: var(--accent-light);
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    /* Stack tags — match project-card link pill style */
+    .exp-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin: 0.75rem 0 1rem;
+    }
+    .stack-tag {
+      font-size: 0.75rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border-glass);
+      border-radius: 8px;
+      padding: 3px 10px;
+      color: var(--text-secondary);
+      font-weight: 500;
+      transition: var(--transition-fast);
+    }
+    .stack-tag:hover {
+      border-color: var(--border-accent);
+      color: var(--accent-light);
+    }
+
+    /* Bullet list */
+    .exp-bullets {
+      list-style: none;
+      padding: 0;
+      margin: 0.25rem 0 0;
+    }
+    .exp-bullets li {
+      font-size: 0.93rem;
+      color: var(--text-secondary);
+      padding: 0.3rem 0 0.3rem 1.3rem;
+      position: relative;
+      line-height: 1.6;
+    }
+    .exp-bullets li::before {
+      content: "▸";
+      position: absolute;
+      left: 0;
+      color: var(--accent-light);
+    }
+
+    /* Deploy badge — green success tone */
+    .deploy-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.78rem;
+      color: #86efac;
+      background: rgba(134, 239, 172, 0.08);
+      border: 1px solid rgba(134, 239, 172, 0.2);
+      border-radius: 8px;
+      padding: 4px 12px;
+      margin-top: 1rem;
+      font-weight: 500;
+    }
+
+    /* Section sub-label (Industrial / Academic) */
+    .projects-label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+      margin: 0 0 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .projects-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border-glass);
+    }
+    .projects-label + .projects-grid {
+      margin-bottom: 2.5rem;
+    }
+
+    /* Active nav link highlight (driven by JS scroll) */
+    .sidebar-nav a.active,
+    .mobile-nav-links a.active {
+      color: var(--text-primary);
+      background: var(--bg-glass);
+    }
+    .sidebar-nav a.active::before {
+      transform: scaleY(1);
+    }
+  </style>
 </head>
 
 <body>
@@ -32,6 +179,7 @@
     </div>
     <nav class="sidebar-nav">
       <a href="#about" class="nav-link"><i class="fas fa-user"></i> About</a>
+      <a href="#experience" class="nav-link"><i class="fas fa-briefcase"></i> Experience</a>
       <a href="#skills" class="nav-link"><i class="fas fa-code"></i> Skills</a>
       <a href="#projects" class="nav-link"><i class="fas fa-folder-open"></i> Projects</a>
       <a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> Contact</a>
@@ -52,6 +200,7 @@
     </div>
     <nav class="mobile-nav-links">
       <a href="#about" class="nav-link">About</a>
+      <a href="#experience" class="nav-link">Experience</a>
       <a href="#skills" class="nav-link">Skills</a>
       <a href="#projects" class="nav-link">Projects</a>
       <a href="#contact" class="nav-link">Contact</a>
@@ -60,6 +209,7 @@
 
   <!-- Main Content -->
   <main class="main-content">
+
     <!-- About -->
     <section id="about" class="section">
       <div class="about-container">
@@ -68,14 +218,19 @@
           <p>
             I am a <strong>Backend Developer</strong> with full-stack
             capabilities, specializing in
-            <strong>Python, Django, REST APIs</strong>, and practical
+            <strong>Python, Django, FastAPI, REST APIs</strong>, and practical
             experience with frontend technologies like
-            <strong>HTML, CSS, JavaScript, React.js</strong>. I love building
-            <strong>scalable, secure, and responsive web applications</strong>.
+            <strong>React.js, JavaScript, HTML, CSS</strong>. I love building
+            <strong>scalable, secure, and high-performance web applications</strong>.
           </p>
           <p>
-            Passionate about learning modern technologies, collaborating
-            remotely, and contributing to impactful projects.
+            I have hands-on industrial experience building and deploying live production
+            systems — including AI-powered platforms, CRM systems, and financial applications
+            — using modern backend and frontend stacks.
+          </p>
+          <p>
+            Passionate about clean code, scalable architecture, and contributing to
+            impactful real-world products.
           </p>
         </div>
         <div class="about-image">
@@ -84,70 +239,163 @@
       </div>
     </section>
 
+    <!-- Experience -->
+    <section id="experience" class="section">
+      <h2>Work Experience</h2>
+      <div class="experience-card">
+        <div class="exp-header">
+          <h3>Backend AI Developer</h3>
+          <span class="exp-badge">4 Months · 2024</span>
+        </div>
+        <div class="exp-company"><i class="fas fa-building" style="margin-right:6px;"></i>Betopia Group &nbsp;·&nbsp; Remote</div>
+        <div class="exp-stack">
+          <span class="stack-tag">Python</span>
+          <span class="stack-tag">Django</span>
+          <span class="stack-tag">FastAPI</span>
+          <span class="stack-tag">React.js</span>
+          <span class="stack-tag">PostgreSQL</span>
+          <span class="stack-tag">REST APIs</span>
+          <span class="stack-tag">JWT Auth</span>
+          <span class="stack-tag">Render</span>
+          <span class="stack-tag">Vercel</span>
+        </div>
+        <ul class="exp-bullets">
+          <li>Developed and maintained production-grade backend services using Django and FastAPI for 3 live applications.</li>
+          <li>Built RESTful APIs with JWT authentication and role-based access control, consumed by React.js frontends.</li>
+          <li>Designed and optimized PostgreSQL database schemas for high-performance, data-intensive applications.</li>
+          <li>Integrated AI/ML features into web applications to automate workflows and surface real-time predictions.</li>
+          <li>Deployed backend APIs to Render and React frontends to Vercel in fully configured production environments.</li>
+          <li>Collaborated in an Agile team, participating in code reviews, sprint planning, and QA processes.</li>
+        </ul>
+        <span class="deploy-badge"><i class="fas fa-rocket"></i> 3 Projects Live on Render &amp; Vercel</span>
+      </div>
+    </section>
+
     <!-- Skills -->
     <section id="skills" class="section">
       <h2>Technical Skills</h2>
       <div class="skills-grid">
-        <div class="skill-card"><span><i class="fab fa-python"></i> Python / Django / Flask</span></div>
-        <div class="skill-card"><span><i class="fab fa-html5"></i> HTML5, CSS3, JavaScript</span></div>
+        <div class="skill-card"><span><i class="fab fa-python"></i> Python / Django / FastAPI</span></div>
         <div class="skill-card"><span><i class="fab fa-react"></i> React.js / Next.js</span></div>
-        <div class="skill-card"><span><i class="fas fa-database"></i> MySQL / SQLite</span></div>
-        <div class="skill-card"><span><i class="fas fa-plug"></i> RESTful APIs</span></div>
+        <div class="skill-card"><span><i class="fab fa-html5"></i> HTML5 / CSS3 / JavaScript</span></div>
+        <div class="skill-card"><span><i class="fas fa-database"></i> PostgreSQL / MySQL / MongoDB</span></div>
+        <div class="skill-card"><span><i class="fas fa-plug"></i> RESTful APIs / JWT Auth</span></div>
         <div class="skill-card"><span><i class="fab fa-bootstrap"></i> Bootstrap / Tailwind CSS</span></div>
         <div class="skill-card"><span><i class="fab fa-git-alt"></i> Git / GitHub</span></div>
-        <div class="skill-card"><span><i class="fas fa-cogs"></i> Data Handling & Automation</span></div>
+        <div class="skill-card"><span><i class="fas fa-robot"></i> AI / ML Integration</span></div>
+        <div class="skill-card"><span><i class="fas fa-server"></i> Render / Vercel Deployment</span></div>
+        <div class="skill-card"><span><i class="fas fa-cogs"></i> OOP / Clean Code / Design Patterns</span></div>
       </div>
     </section>
 
     <!-- Projects -->
     <section id="projects" class="section">
       <h2>Featured Projects</h2>
+
+      <!-- Industrial Projects -->
+      <p class="projects-label">🏭 Industrial — Betopia Group</p>
       <div class="projects-grid">
+
         <div class="project-card">
-          <h3>Potato Leaf Disease detection system</h3>
+          <h3>AI &amp; CRM System</h3>
+          <div class="exp-stack">
+            <span class="stack-tag">Django</span>
+            <span class="stack-tag">React.js</span>
+            <span class="stack-tag">PostgreSQL</span>
+            <span class="stack-tag">AI/ML</span>
+          </div>
           <p>
-            A web application that detect disease of potato leaf with 
-            higher accuracy using FastAPI in Backend & HTML-CSS in Frontend.
+            Full-stack CRM platform with embedded AI capabilities — smart client management,
+            automated data insights, and sales predictions. Complete React.js frontend with
+            Django REST API backend, deployed live.
           </p>
-          <a href="https://github.com/dhrubomondol66/Potato-Leaf-Disease-detection-system" target="_blank"
-            rel="noopener noreferrer"><i class="fab fa-github"></i> View on GitHub</a>
+          <span class="deploy-badge"><i class="fas fa-rocket"></i> Live · Vercel + Render</span>
         </div>
+
+        <div class="project-card">
+          <h3>Quran App Admin Dashboard</h3>
+          <div class="exp-stack">
+            <span class="stack-tag">FastAPI</span>
+            <span class="stack-tag">React.js</span>
+            <span class="stack-tag">PostgreSQL</span>
+          </div>
+          <p>
+            Full-stack admin dashboard for managing Quran app content and users.
+            FastAPI backend with secure auth and CRUD endpoints; React.js frontend
+            with data tables, charts, and real-time stats. Deployed to production.
+          </p>
+          <span class="deploy-badge"><i class="fas fa-rocket"></i> Live · Vercel + Render</span>
+        </div>
+
+        <div class="project-card">
+          <h3>Khazna App — Finance Backend</h3>
+          <div class="exp-stack">
+            <span class="stack-tag">Django</span>
+            <span class="stack-tag">PostgreSQL</span>
+            <span class="stack-tag">REST API</span>
+          </div>
+          <p>
+            Complete Django backend for a financial management application.
+            Designed database models, business logic, RESTful API endpoints,
+            and role-based authentication. Deployed live on Render.
+          </p>
+          <span class="deploy-badge"><i class="fas fa-rocket"></i> Live · Render</span>
+        </div>
+
+      </div>
+
+      <!-- Academic Projects -->
+      <p class="projects-label">🎓 Academic Projects</p>
+      <div class="projects-grid">
+
         <div class="project-card">
           <h3>Smart Transport Management System</h3>
+          <div class="exp-stack">
+            <span class="stack-tag">Django</span>
+            <span class="stack-tag">Flask</span>
+            <span class="stack-tag">MySQL</span>
+          </div>
           <p>
-            Backend system for managing routes, schedules, and ticketing using
-            Django & Flask with responsive frontend.
+            Backend system for managing transport routes, schedules, and ticketing.
+            Secure APIs, database normalization, and optimized queries with a responsive frontend.
           </p>
-          <a href="https://github.com/dhrubomondol66/smart-transport" target="_blank" rel="noopener noreferrer"><i
-              class="fab fa-github"></i> View on GitHub</a>
+          <a href="https://github.com/dhrubomondol66/smart-transport" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-github"></i> View on GitHub
+          </a>
         </div>
+
         <div class="project-card">
-          <h3>Hospital Appointment Management</h3>
+          <h3>Potato Leaf Disease Detection</h3>
+          <div class="exp-stack">
+            <span class="stack-tag">FastAPI</span>
+            <span class="stack-tag">TensorFlow</span>
+            <span class="stack-tag">Python</span>
+          </div>
           <p>
-            Full-stack application for booking appointments, payments, and
-            scheduling using PHP/MySQL and JS frontend.
+            AI-powered web app that detects potato leaf diseases with high accuracy using
+            a CNN model. FastAPI backend with HTML/CSS frontend.
           </p>
-          <a href="https://github.com/dhrubomondol66/hospital-appointment" target="_blank" rel="noopener noreferrer"><i
-              class="fab fa-github"></i> View on GitHub</a>
+          <a href="https://github.com/dhrubomondol66/Potato-Leaf-Disease-detection-system" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-github"></i> View on GitHub
+          </a>
         </div>
+
         <div class="project-card">
-          <h3>Library Review System</h3>
+          <h3>Library Management System (LMS_DIU)</h3>
+          <div class="exp-stack">
+            <span class="stack-tag">Django</span>
+            <span class="stack-tag">SQLite</span>
+            <span class="stack-tag">Tailwind CSS</span>
+          </div>
           <p>
-            Django-based app for book reviews and ratings with frontend using
-            Bootstrap & JS.
+            Django-based library app for browsing, reviewing, and rating books.
+            Full user authentication, review APIs, and dynamic content display.
           </p>
-          <a href="https://github.com/dhrubomondol66/library-review" target="_blank" rel="noopener noreferrer"><i
-              class="fab fa-github"></i> View on GitHub</a>
+          <a href="https://github.com/dhrubomondol66/Learning_Management_System" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-github"></i> View on GitHub
+          </a>
         </div>
-        <div class="project-card">
-          <h3>Learning Management System(LMS)</h3>
-          <p>
-            Full-stack application for managing courses, assignments, and
-            student progress using Django & React.js.
-          </p>
-          <a href="https://github.com/dhrubomondol66/Learning_Management_System" target="_blank"
-            rel="noopener noreferrer"><i class="fab fa-github"></i> View on GitHub</a>
-        </div>
+
       </div>
     </section>
 
@@ -157,7 +405,7 @@
       <div class="contact-grid">
         <p>
           <i class="fas fa-envelope"></i>
-          <a href="mailto:dhrubomondol66@gmail.com">mondal15-5329@diu.edu.bd</a>
+          <a href="mailto:dhrubomondol66@gmail.com">dhrubomondol66@gmail.com</a>
         </p>
         <p>
           <i class="fas fa-phone"></i>
@@ -175,11 +423,10 @@
         </p>
       </div>
     </section>
+
   </main>
 
   <script src="style.js"></script>
 </body>
 
 </html>
-
-
